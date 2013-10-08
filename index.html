@@ -1,0 +1,89 @@
+<!--
+
+The following code presents a useful way to handle
+confirmation dialogs in your web pages. 
+
+It counts with an embeded JavaScript class called
+ConfirmationButton which make your <a> or <button>
+to ask for a confirmation before following an action.
+
+This html file should work "as is".
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.css" rel="stylesheet">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/bootstrap.js"></script>
+        <script type="text/javascript" src="confirm-modal.js"></script>
+        <title>Confirm Dialog Box Test</title>
+
+
+        <script type="text/javascript">
+            $(function(){
+                $('#from-script').confirmButton({
+                    'action': 'newAction',
+                    'text'  : 'Are you a 100% positive you wanna do it?',
+                    'modal' : '#confirm-modal'
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hello confirm!</h1>
+            <span>Confirmation modal for an anchor:</span>
+            <a href="javascript:void(0);" class="confirm-btn"
+               data-action="action"
+               data-text="Are you sure you want to do this?"
+               data-modal="#confirm-modal">
+                Click Me
+            </a>
+
+            <hr>
+
+            <form id="myform" class="form-horizontal" method="get" action="action">
+                <legend>Confirmation modal for a form:</legend>
+                <div class="control-group">
+                    <label class="control-label">Text:</label>
+                    <div class="controls">
+                        <input type="text" placeholder="Put some text here..."
+                               id="text" name="text">
+                   </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button class="btn btn-primary confirm-btn"
+                                type="button"
+                                data-submit="#myform"
+                                data-text="Do you really want to submit this?"
+                                data-modal="#confirm-modal">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <hr>
+
+            <span>Try it from JavaScript:</span>
+            <a href="javascript:void(0);" id="from-script">Another anchor</a>
+         </div>
+         <div id="confirm-modal" class="modal hide fade">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h3>Heads up!</h3>
+             </div>
+             <div class="modal-body">
+                 <p class="modal-text"></p>
+             </div>
+             <div class="modal-footer">
+                 <a href="#" class="btn" data-dismiss="modal">No way</a>
+                 <a class="btn btn-primary
+                 modal-action">Go!</a>
+             </div>
+         </div>
+     </body>
+</html>
