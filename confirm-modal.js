@@ -23,7 +23,7 @@
  * any circumstance. */
 
 
-$(function(){
+(function($){
 
     /* CONFIRMATION BUTTON CLASS DEFINITION
      * ==================================== */
@@ -79,5 +79,8 @@ $(function(){
     /* CONFIRMATION BUTTON CLASS INITIALIZATION
      * ======================================== */
 
-    $('.confirm-btn').confirmButton({});
-});
+    $(function(){
+        $('.confirm-btn').confirmButton({});
+    });
+
+})(window.jQuery);
